@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Visual RAG Studio - Black & Green AI Theme & Compact Components
+   ========================================================================== */
+
+:root {
+  --primary-glow: rgba(16, 185, 129, 0.25);
+  --emerald-neon: #00ff88;
+  --emerald-brand: #10b981;
+  --dark-black: #040605;
+  --panel-black: #0b0f0c;
+  --overlap-amber: rgba(245, 158, 11, 0.25);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050806;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.65);
+}
+
+/* Glassmorphism Black & Emerald Panels */
+.glass-panel {
+  background: rgba(11, 15, 12, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+}
+
+.glass-panel-subtle {
+  background: rgba(16, 24, 18, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(16, 185, 129, 0.12);
+}
+
+/* Glowing card borders */
+.glow-card {
+  position: relative;
+  transition: all 0.2s ease;
+}
+.glow-card:hover {
+  border-color: rgba(16, 185, 129, 0.45);
+  box-shadow: 0 4px 20px -4px var(--primary-glow);
+}
+
+/* Interactive Citation highlighting */
+.citation-target-active {
+  animation: citationPulse 2s ease-out;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.7) !important;
+}
+
+@keyframes citationPulse {
+  0% {
+    transform: scale(1.015);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.9);
+  }
+  50% {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+/* Overlap text visualization */
+.overlap-highlight {
+  background: rgba(245, 158, 11, 0.22);
+  border-bottom: 2px dashed #f59e0b;
+  color: #fde68a;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.overlap-prefix-tag {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.15));
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+/* Pulse animation for active indicators */
+.live-pulse {
+  animation: pulseGreen 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.25);
+  }
+}
+
+/* Markdown styling inside answers */
+.prose-dark {
+  color: #e2e8f0;
+  line-height: 1.65;
+}
+.prose-dark p {
+  margin-bottom: 0.75em;
+}
+.prose-dark h1, .prose-dark h2, .prose-dark h3 {
+  color: #f0fdf4;
+  font-weight: 700;
+  margin-top: 1.1em;
+  margin-bottom: 0.45em;
+}
+.prose-dark ul, .prose-dark ol {
+  margin-left: 1.4em;
+  margin-bottom: 0.75em;
+}
+.prose-dark li {
+  margin-bottom: 0.25em;
+}
+.prose-dark code {
+  background: rgba(5, 10, 7, 0.85);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.86em;
+  color: #6ee7b7;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.prose-dark pre {
+  background: #040705 !important;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  margin: 0.85em 0;
+}
+.prose-dark pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #ecfdf5;
+}
+.prose-dark blockquote {
+  border-left: 3px solid #10b981;
+  padding-left: 12px;
+  color: #94a3b8;
+  font-style: italic;
+  margin: 0.75em 0;
+}
+
+/* Inline Citation Pill */
+.citation-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 6px;
+  margin: 0 2px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 6px;
+  cursor: pointer;
+  vertical-align: baseline;
+  transition: all 0.15s ease;
+  user-select: none;
+  text-decoration: none;
+}
+.citation-pill:hover {
+  background: rgba(16, 185, 129, 0.35);
+  color: #a7f3d0;
+  border-color: #34d399;
+  transform: translateY(-1px);
+}
+
+/* Compact Chunk Display Mechanics */
+.chunk-text-collapsed {
+  max-height: 80px;
+  overflow: hidden;
+  position: relative;
+}
+.chunk-text-collapsed::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background: linear-gradient(180deg, transparent, rgba(5, 9, 6, 0.95));
+  pointer-events: none;
+}
+
+.chunk-text-expanded {
+  max-height: none;
+}
+
+/* Compact Pagination Buttons */
+.page-btn-active {
+  background: #10b981 !important;
+  color: #040705 !important;
+  font-weight: 700 !important;
+  border-color: #10b981 !important;
+}
